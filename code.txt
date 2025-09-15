@@ -1,0 +1,18 @@
+fun main()
+{
+    print("Tell me who's the cook, and I'll tell you price for 1kg of meth: ")
+    println("${howMuchMoneyWeWillMakeWithOurMeth(1.0f, ::whoIsTheCook)}$")
+}
+
+fun howMuchMoneyWeWillMakeWithOurMeth(kg: Float, cook: (String) -> Float): Float = 80000.0f / 100 * cook(readln()) * kg
+
+fun whoIsTheCook(name: String): Float
+{
+    when(name.lowercase())
+    {
+        "walter white", "heisenberg" -> return 99.1f
+        "jesse pinkman" -> return 96.2f
+        "gale boetticher" -> return 96.0f
+        else -> return 0.0f
+    }
+}
