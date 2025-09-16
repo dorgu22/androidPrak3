@@ -1,0 +1,14 @@
+fun main()
+{
+    val arr: Array<(Float, Float) -> Float> = arrayOf(::sum, ::sub, ::mul, ::divis)
+
+    for(func in arr)
+    {
+        println(func(42.0f, 22.0f))
+    }
+}
+
+fun sum(num1: Float, num2: Float): Float = num1 + num2
+fun sub(num1: Float, num2: Float): Float = num1 - num2
+fun mul(num1: Float, num2: Float): Float = num1 * num2
+fun div(num1: Float, num2: Float): Float = num1 / num2
