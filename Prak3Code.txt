@@ -1,7 +1,27 @@
 fun main()
 {
     print("Tell me who's the cook, and I'll tell you price for 1kg of meth: ")
-    println("${howMuchMoneyWeWillMakeWithOurMeth(1.0f, ::whoIsTheCook)}$")
+    //println("${howMuchMoneyWeWillMakeWithOurMeth(1.0f, ::whoIsTheCook)}$")
+
+    sayMyName()
+    println(priceForMethOnStreets(10.0f))
+    println(stringUnderMeth("yo, mista white"))
+
+    sayMyNameWrong()
+    println(returnPriceForMethOnStreets())
+    println(func(42.0, 42.055, 12.03, -1.0))
+    
+    // println(methRecursive(10))
+    
+    val calculateMeth = fun(kg: Float): Float = kg * 70000
+    println(calculateMeth(42.0f))
+    
+    val sayMyNameLambda = {name: String ->
+        println("$name...\nyou're goddamn right")
+    }
+    
+    sayMyNameLambda("heisenberg")
+    
 }
 
 fun howMuchMoneyWeWillMakeWithOurMeth(kg: Float, cook: (String) -> Float): Float = 80000.0f / 100 * cook(readln()) * kg
@@ -14,5 +34,29 @@ fun whoIsTheCook(name: String): Float
         "jesse pinkman" -> return 96.2f
         "gale boetticher" -> return 96.0f
         else -> return 0.0f
+    }
+}
+
+fun sayMyName(): Unit = println("you're goddamn right")
+
+fun priceForMethOnStreets(kg: Float = 10.0f): Float = kg * 70000.0f
+
+fun stringUnderMeth(methString: String) : Set<Char> = methString.toSet()
+
+fun sayMyNameWrong(name: String = "heisenburger"): Unit = println("You're not goddamn right")
+
+fun returnPriceForMethOnStreets(): (Float) -> Float = ::priceForMethOnStreets
+
+fun func(vararg d: Double): Double = d.average()
+
+fun methRecursive(methPrice: Int): Int
+{
+    if (methPrice >= 10000)
+    {
+        return methPrice
+    }
+    else
+    {
+        return methPrice + methRecursive(methPrice / 2)
     }
 }
